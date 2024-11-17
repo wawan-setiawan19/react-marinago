@@ -1,0 +1,109 @@
+.product-card {
+    display: flex;
+    background-color: white;
+    border: 2px solid #DADADA;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .product-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-info h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .description {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .product-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .stock-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #333;
+    cursor: default;
+  }
+  
+  .review-link {
+    font-size: 14px;
+    color: #333;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .product-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  
+  .rating {
+    color: #FFD700;
+    font-size: 18px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn, .delete-btn {
+    color: #6CE9BF;
+    background-color: transparent;
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-action{
+    border: none;
+    padding: 5px 8px;
+    align-self: center;
+    background-color: var(--main-bg-color);
+    color: var(--highlight-color);
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+  }

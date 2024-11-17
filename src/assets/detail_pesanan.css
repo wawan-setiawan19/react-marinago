@@ -1,0 +1,23 @@
+.detail-order-container{
+    display: flex;
+    gap: 20px;
+}
+
+.form-group{
+    width: 30%;
+}
+
+.form-group input{
+    width: 100%;
+}
+
+.w-50{
+    width: 50%;
+}
+
+.upload{
+    display: flex;
+    border: none;
+    padding: 3px 4px;
+    border-radius: 2px;
+}

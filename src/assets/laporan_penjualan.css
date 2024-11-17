@@ -1,0 +1,21 @@
+.filter-section{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+
+.download-section{
+    display: flex;
+    gap: 10px;
+}
+
+.btn-download button{
+    padding: 10px 20px;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    background-color: #46db32;
+    border: none;
+    border-radius: 7px;
+    color: black;
+}
