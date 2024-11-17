@@ -73,4 +73,16 @@ router.post('/', upload.single('image'), async (req, res) => {
     }
   });
 
+  router.delete('/:id', async (req, res) => {
+    const productId = req.params.id;
+  
+    try {
+      // Panggil fungsi deleteProduct dari model
+      const result = await productModel.deleteProduct(productId);
+      res.status(200).json(result); // Kirimkan pesan sukses
+    } catch (error) {
+      res.status(400).json({ message: error.message }); // Kirimkan pesan error
+    }
+  });
+
 module.exports = router;

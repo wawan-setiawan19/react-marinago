@@ -42,8 +42,28 @@ const createProduct = (data) => {
   });
 };
 
+// Fungsi untuk menghapus produk berdasarkan ID
+const deleteProduct = (id) => {
+    return new Promise((resolve, reject) => {
+      const sql = 'DELETE FROM products WHERE id = ?';
+      db.query(sql, [id], (err, results) => {
+        if (err) {
+          reject(err); // Jika error, kembalikan error
+        } else {
+          if (results.affectedRows === 0) {
+            // Jika tidak ada baris yang terpengaruh, produk tidak ditemukan
+            reject(new Error('Product not found'));
+          } else {
+            resolve({ message: 'Product deleted successfully' });
+          }
+        }
+      });
+    });
+  };
+
 module.exports = {
   getAllProducts,
   getProductById,
   createProduct,
+  deleteProduct,
 };

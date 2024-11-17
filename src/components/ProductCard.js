@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 
-function ProductCard({ product, productIndex }) {
+function ProductCard({ product, handleDelete }) {
+    const handleDeleteClick = () => {
+        handleDelete(product.id);  // Pass product id to handleDelete
+    };
     return (
         <div className="product-card">
             <div className="product-image">
-            <img src={`http://localhost:5000/uploads/${product.image}`} alt={product.nama_produk} />
+                <img src={`http://localhost:5000/uploads/${product.image}`} alt={product.nama_produk} />
                 <button className="stock-btn">Stok: {product.stok} {product.satuan}</button>
             </div>
             <div className="product-info">
@@ -25,7 +28,7 @@ function ProductCard({ product, productIndex }) {
                     <Link to={`/edit-produk/${product.id}`} className="edit-btn">
                         <i data-feather="edit-2"></i>
                     </Link>
-                    <button className="delete-btn">
+                    <button className="delete-btn" onClick={handleDeleteClick}>
                         <i data-feather="trash"></i>
                     </button>
                 </div>

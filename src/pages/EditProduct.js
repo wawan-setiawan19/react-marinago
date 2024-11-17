@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import ConfirmationModal from '../components/ConfirmationModal';
 import TitleHead from '../components/TitleHead';
-import { products } from '../assets/product'; // Importing products array
 import '../assets/edit_produk.css';
 import useFetch from '../hooks/useFetch';
 
