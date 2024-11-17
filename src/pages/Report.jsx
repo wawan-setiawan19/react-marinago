@@ -3,8 +3,13 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import ConfirmationModal from '../components/ConfirmationModal';
 import TitleHead from '../components/TitleHead';
+import PaymentSection from '../components/PaymentSection';
+import useFetch from '../hooks/useFetch';
 
 function Report() {
+    const { data: payments, loading: loadingPayments, error: errorPayments } = useFetch('/payments');
+    if(loadingPayments) return <div>Loading</div>
+    if(errorPayments) return <div>Error</div>
     return (
         <div>
             <TitleHead title={"Laporan Penjualan"} />
@@ -31,22 +36,7 @@ function Report() {
                         </div>
                     </div>
                     <div className="payment-section">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Nomor</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama</th>
-                                    <th>Produk</th>
-                                    <th>Jenis Pembayaran</th>
-                                    <th>Total</th>
-                                    <th>Status Pembayaran</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="payment-table">
-                            </tbody>
-                        </table>
+                        <PaymentSection payments={payments}  />
                     </div>
                 </section>
             </main>

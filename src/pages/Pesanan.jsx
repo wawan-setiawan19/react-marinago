@@ -3,8 +3,13 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import ConfirmationModal from '../components/ConfirmationModal';
 import TitleHead from '../components/TitleHead';
+import OrderSection from '../components/OrderSection';
+import useFetch from '../hooks/useFetch';
 
 function Pesanan() {
+    const { data: orders, loading: loadingOrders, error: errorOrders } = useFetch('/orders');
+    if(loadingOrders) return <div>Loading</div>
+    if(errorOrders) return <div>Error</div>
     return (
         <div>
             <TitleHead title={"Pesanan"} />
@@ -43,24 +48,7 @@ function Pesanan() {
                     </div>
                     <h3 className="title-table">Kelola Pesanan</h3>
                     <div className="order-section">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama</th>
-                                    <th>Produk</th>
-                                    <th>Jumlah / Kg</th>
-                                    <th>Total</th>
-                                    <th>Status</th>
-                                    <th>Pembayaran</th>
-                                    <th>Pengiriman</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="order-table">
-                            </tbody>
-                        </table>
+                        <OrderSection orders={orders} />
                     </div>
                 </section>
             </main>
