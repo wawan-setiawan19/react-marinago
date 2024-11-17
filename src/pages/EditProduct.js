@@ -9,9 +9,10 @@ import useFetch from '../hooks/useFetch';
 function EditProduct() {
     const { productIndex } = useParams(); // Get the product index from the URL
     const navigate = useNavigate();
-    
+
     const { data: products, loading, error } = useFetch(`/products/${productIndex}`);  // Menggunakan useFetch untuk mengambil data produk
-    
+    const { data: reviews, loadingReview, errorReview } = useFetch(`/reviews`);  // Menggunakan useFetch untuk mengambil data produk
+
     // State for each field
     const [name, setName] = useState('');
     const [stock, setStock] = useState(0);
@@ -33,6 +34,8 @@ function EditProduct() {
 
     if (loading) return <div>Loading...</div>;  // Menampilkan loading state
     if (error) return <div>Error: {error}</div>;
+    if (loadingReview) return <div>Loading...</div>;  // Menampilkan loading state
+    if (errorReview) return <div>Error: {error}</div>;
 
     const handleSave = () => {
         // Here you would ideally update the product information in the database or state
@@ -53,7 +56,7 @@ function EditProduct() {
                     <div className="edit-container">
                         <div className="thumbnail-product">
                             <div className="img-product">
-                            <img src={`http://localhost:5000/uploads/${products.image}`} alt={products.nama_produk} />
+                                <img src={`http://localhost:5000/uploads/${products.image}`} alt={products.nama_produk} />
                             </div>
                             <div className="stok-product">
                                 <div className="stok">
@@ -124,7 +127,31 @@ function EditProduct() {
                     </div>
                     <h4>Semua Ulasan</h4>
                     <hr className="line-ulasan" />
-                    <div className="review-container"></div>
+                    <div className="review-container">
+                        {reviews && reviews.map((review) => {
+                            return (  // Explicitly return the JSX inside the map
+                                <div className="review-card" key={review.id}>
+                                    <div className="review-image">
+                                        <img src={`http://localhost:5000/images/${review.imgSrc}`} alt={review.nama} />
+                                    </div>
+                                    <div className="review-info">
+                                        <h2>{review.nama}</h2>
+                                        <div className="rating">
+                                            {"★".repeat(review.rating)}
+                                        </div>
+                                        <p className="date-review">{review.tanggal}</p>
+                                        <p className="description">{review.deskripsi}</p>
+                                    </div>
+                                    <div className="product-actions">
+                                        <div className="action-buttons">
+                                            <button className="reply-review">Balas komentar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
                 </section>
             </main>
             <ConfirmationModal />

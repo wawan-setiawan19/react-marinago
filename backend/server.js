@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const productRoutes = require('./routes/productRoutes')
+const reviewRoutes = require('./routes/reviewRoutes')
 const path = require('path');
 const app = express();
 const PORT = 5000;
@@ -22,8 +23,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/products', productRoutes)
+app.use('/api/reviews', reviewRoutes)
 
 // Jalankan server
 app.listen(PORT, () => {
