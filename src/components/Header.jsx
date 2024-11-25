@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '../images/logo.jpeg';
 import notifIcon from '../images/icons/mingcute_notification-fill.svg';
 
-function Header() {
+function Header({logout}) {
   return (
     <header className="header">
       <div className="logo">
@@ -14,7 +14,7 @@ function Header() {
         <button className="notif-btn">
           <img src={notifIcon} alt="Notifications" />
         </button>
-        <button className="logout-btn">Log Out</button>
+        <button className="logout-btn" onClick={logout}>Log Out</button>
       </div>
     </header>
   );

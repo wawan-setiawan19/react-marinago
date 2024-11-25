@@ -7,8 +7,8 @@
 }
 
 :root {
-    --main-bg-color: #2B4944;
-    --highlight-color: #6CE9BF;
+    --main-bg-color: #597445;
+    --highlight-color: #658147;
     --card-color-default: #ffcc00;
     --card-color-pending: #ff6666;
     --text-color-light: white;
@@ -34,7 +34,7 @@ main {
 }
 
 .sidebar {
-    background-color: var(--main-bg-color);
+    /* background-color: var(--main-bg-color); */
     color: white;
     /* padding: 20px; */
 }
@@ -80,7 +80,7 @@ main {
 
 .nav-menu a {
     display: block;
-    color: white;
+    color: black;
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     padding: 20px;
@@ -90,7 +90,9 @@ main {
 
 .nav-menu a.active,
 .nav-menu a:hover {
-    background-color: #6CE9BF;
+    background-color: #658147;
+    color: white;
+    font-weight: bold;
 }
 
 .header {
@@ -296,7 +298,7 @@ tbody tr td:last-child, thead tr th:last-child {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    display: none; /* Awalnya disembunyikan */
+    display: none; /*Awalnya disembunyikan*/
     opacity: 0;
     animation: fadeIn 0.5s ease forwards; /* Durasi animasi */
     animation-delay: 0.3s; /* Penundaan animasi */

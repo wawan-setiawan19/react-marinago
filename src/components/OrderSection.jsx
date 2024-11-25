@@ -21,7 +21,7 @@ function OrderSection({ orders }) {
       <tbody id="order-table">
         {orders.map((item) => {
           return (
-            <tr key={item.id}> {/* Added unique key for each row */}
+            <tr key={item.id}>
               <td>ORD{item.id}</td>
               <td>{item.tanggal}</td>
               <td>{item.nama}</td>
@@ -31,16 +31,14 @@ function OrderSection({ orders }) {
               <td className={item.status === 'Pending' || item.statusPembayaran === 'Menunggu Konfirmasi' ? 'status-pending' : 'status-non-pending'}>
                 {item.status || item.statusPembayaran || ''}
               </td>
-              <td>{item.pembayaran || ''}</td> {/* Render pembayaran if available */}
-              {/* Conditional rendering for pengiriman */}
+              <td>{item.pembayaran || ''}</td>
               {item.pengiriman ? (
                 <td className={item.pengiriman === 'Pending' ? 'status-pending' : 'status-non-pending'}>
                   {item.pengiriman}
                 </td>
               ) : (
-                <td></td> // Empty td if pengiriman is not available
+                <td></td>
               )}
-              {/* Render detail button */}
               <td>
                 <a href={`./detail_pesanan.html`} className="detail-btn">Detail</a>
               </td>

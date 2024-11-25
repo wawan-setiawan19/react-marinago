@@ -1,13 +1,13 @@
 // src/components/ConfirmationModal.js
 import React from 'react';
 
-function ConfirmationModal() {
+function ConfirmationModal({onClose, classOpt, onLogout}) {   
   return (
-    <div className="confirmation-modal" id="modalConfirmation">
+    <div className={classOpt} id="modalConfirmation">
       <h3>Yakin ingin keluar?</h3>
       <div className="btn-confirmation">
-        <button className="close-modal">Tidak</button>
-        <button className="close-modal">Ya</button>
+        <button className="close-modal" onClick={onClose}>Tidak</button>
+        <button className="close-modal" onClick={onLogout}>Ya</button>
       </div>
     </div>
   );
