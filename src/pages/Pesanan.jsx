@@ -1,7 +1,7 @@
 // src/pages/Dashboard.js
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import ConfirmationModal from '../components/ConfirmationModal';
+// import ConfirmationModal from '../components/ConfirmationModal';
 import TitleHead from '../components/TitleHead';
 import OrderSection from '../components/OrderSection';
 import useFetch from '../hooks/useFetch';
@@ -52,7 +52,7 @@ function Pesanan() {
                     </div>
                 </section>
             </main>
-            <ConfirmationModal />
+            {/* <ConfirmationModal /> */}
         </div>
     );
 }

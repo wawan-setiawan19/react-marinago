@@ -1,6 +1,6 @@
 // src/components/Header.js
 import React from 'react';
-import logo from '../images/logo.jpeg';
+import logo from '../images/logo.png';
 import notifIcon from '../images/icons/mingcute_notification-fill.svg';
 
 function Header({logout}) {
@@ -8,7 +8,7 @@ function Header({logout}) {
     <header className="header">
       <div className="logo">
         <img src={logo} alt="Go Marina Logo" />
-        <h2>Go Marina</h2>
+        {/* <h2>Go Marina</h2> */}
       </div>
       <div className="user-actions">
         <button className="notif-btn">
