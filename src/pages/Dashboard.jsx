@@ -66,7 +66,7 @@ function Dashboard() {
           </div>
         </section>
       </main>
-      <ConfirmationModal />
+      {/* <ConfirmationModal /> */}
     </div>
   );
 }

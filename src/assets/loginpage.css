@@ -29,9 +29,10 @@ body {
     color: #3c5a22;
   }
   
-  p {
+  .login-section p {
     font-size: 16px;
     line-height: 1.5;
+    text-align: center;
     color: #606060;
   }
   
@@ -41,10 +42,6 @@ body {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .login-section p{
-    text-align: center;
   }
   
   .login-section h2 {
