@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { apiRequest } from '../helpers/apiHelper';
 import TitleHead from '../components/TitleHead';
 import Sidebar from '../components/Sidebar';
-import ConfirmationModal from '../components/ConfirmationModal';
+// import ConfirmationModal from '../components/ConfirmationModal';
 import { useNavigate } from 'react-router-dom';
 
 function Product() {
@@ -131,7 +131,7 @@ function Product() {
                     {error && <div>Error: {error}</div>}
                 </section>
             </main>
-            <ConfirmationModal />
+            {/* <ConfirmationModal /> */}
         </div>
     );
 }

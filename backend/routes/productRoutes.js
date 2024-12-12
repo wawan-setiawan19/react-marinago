@@ -73,6 +73,30 @@ router.post('/', upload.single('image'), async (req, res) => {
     }
   });
 
+  router.put('/:id', async (req, res) => {
+    try {
+      const productId = req.params.id;
+      const updatedProduct = {
+        nama_produk: req.body.nama_produk,
+        harga: req.body.harga,
+        stok: req.body.stok,
+        deskripsi: req.body.deskripsi,
+        satuan: req.body.satuan,
+      };
+  
+      const result = await productModel.updateProduct(productId, updatedProduct);
+  
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+  
+      res.status(201).json({ message: 'Product updated successfully' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   router.delete('/:id', async (req, res) => {
     const productId = req.params.id;
   

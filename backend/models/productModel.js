@@ -42,6 +42,19 @@ const createProduct = (data) => {
   });
 };
 
+const updateProduct = (productId, data) => {
+  return new Promise((resolve, reject) => {
+    const sql = 'UPDATE products SET ? WHERE id = ?';
+    db.query(sql, [data, productId], (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+};
+
 // Fungsi untuk menghapus produk berdasarkan ID
 const deleteProduct = (id) => {
     return new Promise((resolve, reject) => {
@@ -66,4 +79,5 @@ module.exports = {
   getProductById,
   createProduct,
   deleteProduct,
+  updateProduct
 };

@@ -5,6 +5,7 @@ import ConfirmationModal from '../components/ConfirmationModal';
 import TitleHead from '../components/TitleHead';
 import '../assets/edit_produk.css';
 import useFetch from '../hooks/useFetch';
+import { apiRequest } from '../helpers/apiHelper';
 
 function EditProduct() {
     const { productIndex } = useParams(); // Get the product index from the URL
@@ -12,6 +13,9 @@ function EditProduct() {
 
     const { data: products, loading, error } = useFetch(`/products/${productIndex}`);  // Menggunakan useFetch untuk mengambil data produk
     const { data: reviews, loadingReview, errorReview } = useFetch(`/reviews`);  // Menggunakan useFetch untuk mengambil data produk
+
+    const [isLoading, setIsLoading] = useState(false); // Loading state
+    const [isError, setIsError] = useState(null); // Error state
 
     // State for each field
     const [name, setName] = useState('');
@@ -32,16 +36,40 @@ function EditProduct() {
         }
     }, [products]); // Update state when products data changes
 
-    if (loading) return <div>Loading...</div>;  // Menampilkan loading state
-    if (error) return <div>Error: {error}</div>;
+    if (loading || isLoading) return <div>Loading...</div>;  // Menampilkan loading state
+    if (error || isError) return <div>Error: {isError}</div>;
     if (loadingReview) return <div>Loading...</div>;  // Menampilkan loading state
     if (errorReview) return <div>Error: {error}</div>;
 
-    const handleSave = () => {
-        // Here you would ideally update the product information in the database or state
-        alert("Product saved successfully!");
-        navigate(-1); // Navigate back to the previous page
-    };
+    const handleSave = async (e) => {
+        e.preventDefault();
+    
+        const updatedProduct = {
+          nama_produk: name,
+          harga: price,
+          stok: stock,
+          deskripsi: description,
+          satuan: unit,
+        };
+
+        // console.log(updatedProduct);
+    
+        setIsLoading(true);
+        try {
+            const response = await apiRequest(`/products/${productIndex}`, "PUT", updatedProduct);
+    
+          if (!response) {
+            throw new Error('Failed to update product');
+          }
+    
+          alert('Product updated successfully!');
+          navigate(-1); // Navigate back to the previous page
+        } catch (error) {
+          setIsError(error.message);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
     const handleCancel = () => {
         navigate(-1); // Navigate back to the previous page

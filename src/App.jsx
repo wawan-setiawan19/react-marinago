@@ -19,9 +19,9 @@ import ConfirmationModal from "./components/ConfirmationModal";
 import Login from "./pages/Login";
 
 // Protected Route Component
-const ProtectedRoute = ({ children, isLogin }) => {
-  return isLogin ? children : <Login />;
-};
+// const ProtectedRoute = ({ children, isLogin }) => {
+//   return isLogin ? children : <Login />;
+// };
 
 function App() {
   const [isLogoutNotif, setIsLogoutNotif] = useState(false);
