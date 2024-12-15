@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const productRoutes = require('./routes/productRoutes')
+const acaraRoutes = require('./routes/acaraRoutes')
 const reviewRoutes = require('./routes/reviewRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
@@ -28,6 +29,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/products', productRoutes)
+app.use('/api/acaras', acaraRoutes)
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/payments', paymentRoutes)

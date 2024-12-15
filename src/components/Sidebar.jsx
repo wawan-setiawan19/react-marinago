@@ -19,6 +19,9 @@ function Sidebar() {
         <Link to="/product" className={location.pathname === '/product' || location.pathname.includes('produk') || location.pathname.includes('product') ? 'active' : ''}>
           <i data-feather="shopping-bag"></i> Produk
         </Link>
+        <Link to="/acara" className={location.pathname === '/acara' || location.pathname.includes('acara') || location.pathname.includes('acara') ? 'active' : ''}>
+          <i data-feather="watch"></i> Acara
+        </Link>
         <Link to="/pesanan" className={location.pathname === '/pesanan' ? 'active' : ''}>
           <i data-feather="file-text"></i> Pesanan
         </Link>

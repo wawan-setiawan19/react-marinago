@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import ConfirmationModal from '../components/ConfirmationModal';
 import TitleHead from '../components/TitleHead';
 import '../assets/edit_produk.css';
 import useFetch from '../hooks/useFetch';
@@ -182,7 +181,6 @@ function EditProduct() {
 
                 </section>
             </main>
-            <ConfirmationModal />
         </div>
     );
 }

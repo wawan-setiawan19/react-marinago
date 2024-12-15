@@ -6,17 +6,20 @@ import Product from "./pages/Product";
 import Pesanan from "./pages/Pesanan";
 import Pembayaran from "./pages/Pembayaran";
 import Report from "./pages/Report";
-import './assets/index.css';
-import './assets/edit_produk.css';
-import './assets/detail_pesanan.css';
-import './assets/produk.css';
-import './assets/laporan_penjualan.css';
+import "./assets/index.css";
+import "./assets/edit_produk.css";
+import "./assets/detail_pesanan.css";
+import "./assets/produk.css";
+import "./assets/laporan_penjualan.css";
 import feather from "feather-icons";
 import Header from "./components/Header";
 import EditProduct from "./pages/EditProduct";
 import CreateProduct from "./pages/CreateProduct";
 import ConfirmationModal from "./components/ConfirmationModal";
 import Login from "./pages/Login";
+import Acara from "./pages/Acara";
+import CreateAcara from "./pages/CreateAcara";
+import EditAcara from "./pages/EditAcara";
 
 // Protected Route Component
 // const ProtectedRoute = ({ children, isLogin }) => {
@@ -82,6 +85,38 @@ function App() {
             }
           />
           <Route
+            path="/edit-produk/:productIndex"
+            element={
+              <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
+                <EditProduct />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/acara"
+            element={
+              <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
+                <Acara />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/create-acara"
+            element={
+              <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
+                <CreateAcara />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/edit-acara/:productIndex"
+            element={
+              <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
+                <EditAcara />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/pesanan"
             element={
               <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
@@ -102,14 +137,6 @@ function App() {
             element={
               <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
                 <Report />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/edit-produk/:productIndex"
-            element={
-              <ProtectedRoute isLogin={isLogin} onLogin={onLogin}>
-                <EditProduct />
               </ProtectedRoute>
             }
           />
